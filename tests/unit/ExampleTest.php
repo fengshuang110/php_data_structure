@@ -1,4 +1,5 @@
 <?php
+namespace Unit;
 
 class ExampleTest extends \Codeception\TestCase\Test
 {

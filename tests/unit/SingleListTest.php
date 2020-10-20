@@ -44,5 +44,13 @@ class SingleListTest extends \Codeception\TestCase\Test
         $this->tester->assertFalse(SingleList::isIntersect($head1, $head2));
 
         $this->tester->assertTrue(SingleList::isIntersect($head3, $head4));
+
+        $this->tester->assertFalse(SingleList::getIntersectNode($head1, $head2));
+
+        $node = SingleList::getIntersectNode($head3, $head4);
+
+        codecept_debug($node->val);
+
+        $this->tester->assertTrue($head1 === $node);
     }
 }

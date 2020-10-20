@@ -58,7 +58,52 @@ class SingleList
 
     public static function getIntersectNode(Node $head1, Node $head2)
     {
+        $size1 = 0;
+        $size2 = 0;
+        $p = $head1;
+        $q = $head2;
+        while ($head1) {
+            $size1++;
+            if(!$head1->next) {
+                break;
+            }
 
+            $head1 = $head1->next;
+        }
+
+        while ($head2) {
+            $size2++;
+            if(!$head2->next) {
+                break;
+            }
+            $head2 = $head2->next;
+        }
+
+        if($size1 > $size2) {
+            while($size1 - $size2 > 0) {
+                $p = $p->next;
+                $size1--;
+            }
+        } else {
+            while($size2 - $size1 > 0) {
+                $size2--;
+                $q = $q->next;
+            }
+        }
+
+        while(true) {
+            if(is_null($p) || is_null($q)) {
+                return false;
+            }
+            if($p === $q) {
+                return $q;
+            } else {
+                $p = $p->next;
+                $q = $q->next;
+            }
+        }
+
+        return false;
     }
 
     public static function revList(Node $head)

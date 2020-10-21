@@ -3,6 +3,7 @@ namespace Fengshuang\Common;
 
 class Node
 {
+    public $key;
     public $val;
     public $next = null;
     public $pre = null;

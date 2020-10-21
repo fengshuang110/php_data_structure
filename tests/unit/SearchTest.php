@@ -31,4 +31,10 @@ class SearchTest extends \Codeception\TestCase\Test
         $this->tester->assertEquals(Search::recursionBinarySearch($ls, 9, $low, $high), count($ls) - 1);
         $this->tester->assertEquals(Search::recursionBinarySearch($ls, -1, $low, $high), 0);
     }
+
+    public function testLongestPalindrome()
+    {
+        $res = Search::longestPalindrome('abac');
+        codecept_debug($res);
+    }
 }
